@@ -1,13 +1,11 @@
 {
-  "outputDirectory": "dist",
-  "framework": "remix",
-  "env": {
-    "ENABLE_VC_BUILD": "1"
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ]
 }
