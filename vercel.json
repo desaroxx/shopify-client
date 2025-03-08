@@ -1,4 +1,7 @@
 {
   "outputDirectory": "dist",
-  "framework": "remix"
+  "framework": "remix",
+  "env": {
+    "ENABLE_VC_BUILD": "1"
+  }
 }
