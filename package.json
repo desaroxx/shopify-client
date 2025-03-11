@@ -6,14 +6,17 @@
   "type": "module",
   "scripts": {
     "build": "shopify hydrogen build --codegen",
+    "postbuild": "mkdir -p build && cp -r dist/* build/",
     "dev": "shopify hydrogen dev --codegen",
     "preview": "shopify hydrogen preview --build",
     "lint": "eslint --no-error-on-unmatched-pattern .",
     "typecheck": "tsc --noEmit",
-    "codegen": "shopify hydrogen codegen"
+    "codegen": "shopify hydrogen codegen",
+    "start:artifact": "pnpm remix-serve ./build/server/index.js"
   },
   "prettier": "@shopify/prettier-config",
   "dependencies": {
+    "@remix-run/node": "^2.15.3",
     "@remix-run/react": "^2.15.3",
     "@remix-run/server-runtime": "^2.15.3",
     "@shopify/hydrogen": "2025.1.2",
@@ -30,6 +33,7 @@
     "@eslint/js": "^9.18.0",
     "@graphql-codegen/cli": "5.0.2",
     "@remix-run/dev": "^2.15.3",
+    "@remix-run/serve": "^2.15.3",
     "@shopify/cli": "~3.75.3",
     "@shopify/hydrogen-codegen": "^0.3.2",
     "@shopify/mini-oxygen": "^3.1.1",
