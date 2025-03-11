@@ -3,6 +3,7 @@ import {hydrogen} from '@shopify/hydrogen/vite';
 import {oxygen} from '@shopify/mini-oxygen/vite';
 import {vitePlugin as remix} from '@remix-run/dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import {vercelPreset} from '@vercel/remix/vite';
 
 declare module '@remix-run/server-runtime' {
   interface Future {
@@ -15,7 +16,7 @@ export default defineConfig({
     hydrogen(),
     oxygen(),
     remix({
-      presets: [hydrogen.preset()],
+      presets: [hydrogen.preset(), vercelPreset()],
       future: {
         v3_fetcherPersist: true,
         v3_relativeSplatPath: true,
